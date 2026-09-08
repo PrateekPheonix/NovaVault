@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "model": "tiny.en",
+      "clip": "speech-3s.wav",
+      "dur": 3.0,
+      "load_ms": 52.01,
+      "infer_ms": 76.70000000000002,
+      "rtf": 0.02556666666666667
+    },
+    {
+      "model": "tiny.en",
+      "clip": "speech-5s.wav",
+      "dur": 5.0,
+      "load_ms": 52.9,
+      "infer_ms": 75.44,
+      "rtf": 0.015087999999999999
+    },
+    {
+      "model": "tiny.en",
+      "clip": "speech-10s.wav",
+      "dur": 10.0,
+      "load_ms": 52.55,
+      "infer_ms": 190.61,
+      "rtf": 0.019061
+    },
+    {
+      "model": "tiny.en",
+      "clip": "question-tts.wav",
+      "dur": 8.53,
+      "load_ms": 52.14,
+      "infer_ms": 176.89,
+      "rtf": 0.020737397420867526
+    },
+    {
+      "model": "base.en",
+      "clip": "speech-3s.wav",
+      "dur": 3.0,
+      "load_ms": 81.55,
+      "infer_ms": 131.48000000000002,
+      "rtf": 0.043826666666666673
+    },
+    {
+      "model": "base.en",
+      "clip": "speech-5s.wav",
+      "dur": 5.0,
+      "load_ms": 79.93,
+      "infer_ms": 114.75999999999999,
+      "rtf": 0.022951999999999997
+    },
+    {
+      "model": "base.en",
+      "clip": "speech-10s.wav",
+      "dur": 10.0,
+      "load_ms": 72.4,
+      "infer_ms": 208.2,
+      "rtf": 0.020819999999999998
+    },
+    {
+      "model": "base.en",
+      "clip": "question-tts.wav",
+      "dur": 8.53,
+      "load_ms": 89.38,
+      "infer_ms": 242.3,
+      "rtf": 0.02840562719812427
+    },
+    {
+      "model": "small.en",
+      "clip": "speech-3s.wav",
+      "dur": 3.0,
+      "load_ms": 226.31,
+      "infer_ms": 444.23999999999995,
+      "rtf": 0.14808
+    },
+    {
+      "model": "small.en",
+      "clip": "speech-5s.wav",
+      "dur": 5.0,
+      "load_ms": 178.69,
+      "infer_ms": 280.76,
+      "rtf": 0.056152
+    },
+    {
+      "model": "small.en",
+      "clip": "speech-10s.wav",
+      "dur": 10.0,
+      "load_ms": 181.99,
+      "infer_ms": 462.19,
+      "rtf": 0.046219
+    },
+    {
+      "model": "small.en",
+      "clip": "question-tts.wav",
+      "dur": 8.53,
+      "load_ms": 196.96,
+      "infer_ms": 424.51,
+      "rtf": 0.04976670574443142
+    }
+  ],
+  "transcripts": {
+    "tiny.en/speech-3s.wav": "And so am I fellow Americans.",
+    "tiny.en/speech-5s.wav": "And so my fellow Americans ask not",
+    "tiny.en/speech-10s.wav": "And so my fellow Americans ask not what your country can do for you. Ask what you can do for your country.",
+    "tiny.en/question-tts.wav": "So tell me about a time you handled a production incident. What was the root cause? And how did you approach debugging it under time pressure?",
+    "base.en/speech-3s.wav": "And so, my fellow Americans!",
+    "base.en/speech-5s.wav": "And so, my fellow Americans, ask not.",
+    "base.en/speech-10s.wav": "And so my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "base.en/question-tts.wav": "So, tell me about a time you handled a production incident. What was the root cause? And how did you approach debugging it under time pressure?",
+    "small.en/speech-3s.wav": "And so, my fellow Americans,",
+    "small.en/speech-5s.wav": "And so, my fellow Americans, ask not.",
+    "small.en/speech-10s.wav": "And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "small.en/question-tts.wav": "So tell me about a time you handled a production incident. What was the root cause? And how did you approach debugging it under time pressure?"
+  },
+  "host": "Apple M2 Pro, 10 cores, 16GB",
+  "threads": 8,
+  "runs": 3
+}

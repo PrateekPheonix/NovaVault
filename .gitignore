@@ -1,0 +1,7 @@
+# build artifacts
+spikes/macos-audio-tap/audiotap
+
+# downloaded models (680MB) and generated/downloaded audio
+spikes/whisper-bench/models/
+*.wav
+*.aiff
