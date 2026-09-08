@@ -5,3 +5,6 @@ spikes/macos-audio-tap/audiotap
 spikes/whisper-bench/models/
 *.wav
 *.aiff
+
+# node
+node_modules/
