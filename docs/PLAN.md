@@ -135,13 +135,27 @@ Scope:
 - **TCC permissions** — Microphone (`NSMicrophoneUsageDescription`), plus Input Monitoring
   or Accessibility for global hotkeys. Each is a separate user prompt; sequence them so the
   app explains itself before triggering the OS dialog.
-- **Overlay window** — Electron `BrowserWindow` with `alwaysOnTop`, an elevated window
-  level, and `setVisibleOnAllWorkspaces`. Backed by an `NSPanel` if Electron's behaviour
-  proves insufficient (§21).
-- **Window privacy** — Electron's `setContentProtection(true)` maps to
-  `NSWindow.sharingType = .none`. This is the OS-sanctioned mechanism for the PRD's stated
-  privacy requirement and the macOS analogue of the `SetWindowDisplayAffinity` reference in
-  §21. It is a documented AppKit API, not an evasion technique.
+- **Overlay window** — ✅ **built and verified** (`src/main/`, Electron 44.3.0). A real
+  window reports `alwaysOnTop: true`, `visibleOnAllWorkspaces: true`, `focusable: false`,
+  `resizable: false`. Run `npm run verify:overlay` to re-check.
+  - `focusable: false` is load-bearing — a focusable overlay swallows keystrokes meant for
+    the call or the editor.
+  - `setAlwaysOnTop(true, "screen-saver")` — plain `alwaysOnTop` still sits *below*
+    fullscreen video windows, i.e. exactly when the overlay is needed.
+  - `setVisibleOnAllWorkspaces(true, { visibleOnFullScreenSpaces: true })` — macOS gives a
+    fullscreen app its own Space; without this the overlay vanishes the moment the
+    interview goes fullscreen, which is the normal case.
+- **Window privacy** — `setContentProtection(true)` maps to `NSWindow.sharingType = .none`,
+  the OS-sanctioned mechanism for the §21 requirement and the macOS analogue of the
+  `SetWindowDisplayAffinity` reference. A documented AppKit API, not an evasion technique.
+  **Not yet verified:** Electron exposes no getter, so the only honest test is a
+  screenshot. `scripts/verify-content-protection.sh` captures a with/without pair — it
+  needs Screen Recording permission and a human eye, so it must run from Terminal.
+
+  > **⚠ Same shape of trap as the audio spike.** Without Screen Recording permission,
+  > `screencapture` returns a blank image — the overlay is "absent", so the check appears
+  > to pass for entirely the wrong reason. The script gates on capture size and refuses to
+  > conclude anything from a blank screenshot.
 
 **Exit:** a question spoken by another participant produces a useful, streamed answer in
 the overlay.
@@ -285,11 +299,13 @@ engineer is what makes Phase 5 parallelisable.
 
 1. **Finish the audio spike under a granted permission** — one manual run from Terminal.
    Still the only unproven link in the capture chain, and it gates Phase 1.
-2. **Validate STT accuracy on real interview audio, streaming** — latency is settled,
+2. **Verify content protection with a screenshot** — `scripts/verify-content-protection.sh`
+   from Terminal. Electron cannot self-report it.
+3. **Validate STT accuracy on real interview audio, streaming** — latency is settled,
    accuracy is not. Needs real recordings; ideally with the accents this will run against.
-3. **API key custody** — thin proxy or per-user keys? Only an *LLM* key is needed now.
+4. **API key custody** — thin proxy or per-user keys? Only an *LLM* key is needed now.
    Depends on user count and whether central cost visibility is wanted.
-4. **Roughly how many internal users?** Decides Q3 and how much of Phase 4 survives.
-5. **Apple Developer Program enrolment** — the only signing identity here is
+5. **Roughly how many internal users?** Decides Q4 and how much of Phase 4 survives.
+6. **Apple Developer Program enrolment** — the only signing identity here is
    `Apple Development`, which cannot sign for distribution. Needed before Phase 4; has
    lead time.

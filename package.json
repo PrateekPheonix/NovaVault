@@ -8,10 +8,15 @@
   },
   "scripts": {
     "test": "node --test test/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json && mkdir -p dist/renderer && cp src/renderer/*.html dist/renderer/",
+    "start": "npm run build && electron .",
+    "verify:overlay": "npm run build && electron . --verify"
   },
   "devDependencies": {
-    "typescript": "^5.7.2",
-    "@types/node": "^22.10.2"
-  }
+    "@types/node": "^22.10.2",
+    "electron": "^44.3.0",
+    "typescript": "^5.7.2"
+  },
+  "main": "dist/main/main.js"
 }

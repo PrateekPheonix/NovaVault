@@ -8,3 +8,4 @@ spikes/whisper-bench/models/
 
 # node
 node_modules/
+dist/

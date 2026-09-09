@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'" />
+  <title>Interview Copilot</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: transparent; }
+    body {
+      font: 13px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      -webkit-user-select: none; user-select: none;
+    }
+    .hud {
+      box-sizing: border-box; height: 100%; padding: 14px 16px;
+      background: rgba(22, 22, 24, 0.82);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      border: 0.5px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px; color: rgba(255, 255, 255, 0.92);
+      display: flex; flex-direction: column; gap: 10px;
+      -webkit-app-region: drag;
+    }
+    .status { display: flex; align-items: center; gap: 7px;
+              font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase;
+              color: rgba(255, 255, 255, 0.45); }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #34c759; }
+    .answer { flex: 1; overflow-y: auto; -webkit-app-region: no-drag; }
+    .placeholder { color: rgba(255, 255, 255, 0.35); font-style: italic; }
+    .k { color: rgba(255,255,255,0.45); font-size: 11px; text-transform: uppercase;
+         letter-spacing: 0.04em; margin-bottom: 2px; }
+    .v { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="hud">
+    <div class="status"><span class="dot"></span><span>Listening</span></div>
+    <div class="answer">
+      <!-- §G5: terse, scannable output. Not a wall of ChatGPT prose. -->
+      <div class="placeholder">Waiting for a question&hellip;</div>
+      <template id="answer-shape">
+        <div class="k">Approach</div><div class="v"></div>
+        <div class="k">Complexity</div><div class="v"></div>
+        <div class="k">Edge case</div><div class="v"></div>
+      </template>
+    </div>
+  </div>
+</body>
+</html>
